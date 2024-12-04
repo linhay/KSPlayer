@@ -579,8 +579,6 @@ public extension AVAsset {
 
     func thumbnailImage(currentTime: CMTime, handler: @escaping (CGImage?) -> Void) {
         let imageGenerator = createImageGenerator()
-        imageGenerator.requestedTimeToleranceBefore = .zero
-        imageGenerator.requestedTimeToleranceAfter = .zero
         imageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: currentTime)]) { _, cgImage, _, _, _ in
             if let cgImage {
                 handler(cgImage)
